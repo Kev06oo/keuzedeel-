@@ -20,7 +20,7 @@ function story(aName)
         createButton("exit", "I am a coward.")
         createButton("entrance", "continue through the dark misty cavern")
     end
-
+    
     if aName == "entrance" then
         if not entered then
             playSound("footstep.wav")
@@ -91,6 +91,14 @@ function story(aName)
         createButton("Hollowdeath", "USE FIREBALL SPELL")
     end
 
+    if aName == "slap3" then 
+        CLS()
+        createTextfield("You've angered the knight...")
+        setBackground("Hollowroommad.jpg")
+        createButton("exit", "die stupidly")
+        playSound("punch.wav")
+    end 
+
     if aName == "upStairs" then
         CLS()
         playSound("footstep.wav")
@@ -98,11 +106,21 @@ function story(aName)
         if hasSpell and castSpellLib then
             createTextfield("Thank you for saving Hollownest!")
             createButton("exit", "You thank the elder and decide to retire")
+            createButton("explore1", "decide to explore and get rid of all evil")
         else
             createTextfield("Who are you? Are you a ghost?! I haven't seen anyone in years...")
             createButton("entrance", "Ignore the delusional old man and continue")
             createButton("slap", "slap him")
+            createButton("elderbug2", "I am a knight and im lost")
         end
+    end
+
+    if aName == "elderbug2" then
+        CLS()
+        setBackground("elderbug4k.png")
+        createTextfield("Im sorry to hear that, we here in hollow nest have been living                       in terror because of a deadly virus that took controll of one of                     the most powerfull knights ever, could you help us little ghost?")
+        createButton("entrance", "I will do my very best sir")
+        createButton("exit", "no I dont wanna play this game")
     end
 
     if aName == "Hollowdeath" then
@@ -129,6 +147,79 @@ function story(aName)
         createButton("entrance", "leave")
         playSound("punch.wav")
     end
+
+    if aName == "explore1" then
+        CLS()
+        setBackground("crystalcave.png")
+        createButton("entrance", "return to Dirtmouth")
+        createButton("darkcave", "follow the sounds" )
+        playSound("")
+        createTextfield("you stumble upon a great crystal cave, you hear ominous sounds...")
+    end
+
+    if aName == "darkcave" then
+        CLS()
+        setBackground("blackscreen.jpg")
+        createButton("darkcave2", "go left")
+        createButton("explore1", "go right")
+        playSound("")
+        createTextfield("Its really dark, what way do you go?")
+     end
+     
+    if aName == "darkcave2" then
+        CLS()
+        setBackground("blackscreen.jpg")
+        createButton("explore1", "go left")
+        createButton("2ndboss", "go right")
+        playSound("")
+        createTextfield("okay, what way do you go now?")
+    end 
+
+    if aName == "2ndboss" then
+        CLS()
+        setBackground("crystalboss.png")
+        createButton("crystalbossawake", "wake up the bug")
+        playSound("horrormusic.wav")
+        createTextfield("its a sleeping crystal bug, he seems friendly")
+    end 
+
+    if aName == "crystalbossawake" then
+        CLS()
+        createTextfield("he woke up but does not seem happy about its awakening")
+        setBackground("crystalbossangry.png")
+        createButton("fireballfail", "use fireball")
+        createButton("endingflee", "flee")
+    end
+
+    if aName == "fireballfail" then
+        CLS()
+        setBackground("crystalbossattack.png")
+        createTextfield("!!!")
+        createButton("badendingflee", "FLEE!!!")
+    end
+
+    if aName == "crystalbossawake" then
+        CLS()
+        createTextfield("he woke up but does not seem happy about its awakening")
+        setBackground("crystalbossangry.png")
+        createButton("fireballfail", "use fireball")
+        createButton("endingflee", "flee (might be smart)")
+    end
+
+    if aName == "endingflee" then
+        CLS()
+        createTextfield("you escape unharmed and live a full happy life")
+        setBackground("happyending.png")
+        playSound("happysong.wav")
+        createButton("exit", "exit")
+    end
+
+    if aName == "badendingflee" then
+        CLS()
+        createTextfield("you try to run but fail and now fight till you inevidible death")
+        createButton("exit", "die (bad)")
+        setBackground("fighttodeath.png")
+    end 
 
     if aName == "exit" then
         exitGame()
